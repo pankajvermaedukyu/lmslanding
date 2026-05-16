@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LMS Bharat | Modern Learning Management System</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#">
+        <img src="./lms-logo.png" alt="LMS Bharat logo" class="site-logo" />
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#home">Home</a>
+        <a href="#universities">Universities</a>
+        <a href="#courses">Courses</a>
+        <a href="#tools">Tools</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="btn btn-login" href="#login">
+        <span>Login</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M15 12a3 3 0 1 0-3-3 3 3 0 0 0 3 3Zm-8 8a6 6 0 0 1 12 0H7Zm12.71-1.29-2-2A1 1 0 0 0 16 16h-2v-2h2a1 1 0 0 0 .71-1.71l-2-2a1 1 0 0 0-1.42 1.42L15.59 12H12a1 1 0 0 0 0 2h3.59l-1.3 1.29A1 1 0 0 0 14 17h2a1 1 0 0 0 .71-.29l2-2a1 1 0 0 0 0-1.42Z"/>
+        </svg>
+      </a>
+      <button class="menu-toggle" aria-label="Open menu">Menu</button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home">Home</a>
+    <a href="#universities">Universities</a>
+    <a href="#courses">Courses</a>
+    <a href="#tools">Tools</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-layout">
+        <div class="hero-copy">
+          <span class="eyebrow">LMS Bharat Learning Management System</span>
+          <h1>Manage courses, track progress, and support learners at scale.</h1>
+          <p>LMS Bharat powers modern online education with a centralized course portal, student dashboards, live sessions, assessments, and placement-ready guidance.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#courses">Browse Courses</a>
+            <a class="btn btn-secondary" href="#universities">View Partners</a>
+          </div>
+          <div class="hero-notice">
+            <span class="notice-icon">🎓</span>
+            <div>
+              <p>Trusted by learners</p>
+              <strong>2500+ students onboarded in 2026</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="visual-frame">
+            <div class="logo-pill">Course dashboard</div>
+            <div class="visual-image"></div>
+            <div class="visual-caption">
+              <strong>One platform for learning and placement support</strong>
+              <p>Track assignments, attend live classes, and complete certifications from a single dashboard.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section university-section" id="universities">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Explore our Partner Universities</span>
+          <h2>Online programs from India's top institutions</h2>
+          <p>Earn a degree from verified universities with flexible schedules and affordable fees.</p>
+        </div>
+        <div class="university-grid">
+          <article class="university-card">
+            <img src="https://firebasestorage.googleapis.com/v0/b/edukyu-1.firebasestorage.app/o/colleges%2Flogos%2F1767859112668_n5w45jmpm.webp?alt=media&token=ff7d07d1-4dcc-40be-8fdf-13d68642c7c6" alt="Amity University logo" />
+          </article>
+          <article class="university-card">
+            <img src="https://storage.googleapis.com/edukyu-1.firebasestorage.app/external-images/dpu-logo.png" alt="D.Y. Patil Vidyapeeth logo" />
+          </article>
+          <article class="university-card">
+            <img src="https://firebasestorage.googleapis.com/v0/b/edukyu-1.firebasestorage.app/o/colleges%2Flogos%2F1767859122785_tyc92szig.webp?alt=media&token=b6e80216-0de5-4aeb-8d09-c1a6134ee7c0" alt="Jain University logo" />
+          </article>
+          <article class="university-card">
+            <img src="https://firebasestorage.googleapis.com/v0/b/edukyu-1.firebasestorage.app/o/colleges%2Flogos%2F1767859075405_0jbxprzbb.webp?alt=media&token=9bc73ec7-3867-419e-8809-f2419248bce9" alt="Lovely Professional University logo" />
+          </article>
+          <article class="university-card">
+            <img src="https://firebasestorage.googleapis.com/v0/b/edukyu-1.firebasestorage.app/o/colleges%2Flogos%2F1767859100640_r3kmyhcsl.webp?alt=media&token=90a0b82d-9536-4364-ad66-5015c90c1e1c" alt="Manipal University Jaipur logo" />
+          </article>
+          <article class="university-card">
+            <img src="https://firebasestorage.googleapis.com/v0/b/edukyu-1.firebasestorage.app/o/colleges%2Flogos%2F1767859085615_4690xb2db.webp?alt=media&token=546f7ed1-ece3-434f-837b-6dd8addd76e1" alt="Shoolini University logo" />
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section courses-section" id="courses">
+      <div class="container course-layout">
+        <div class="section-heading">
+          <span class="eyebrow">Featured Courses</span>
+          <h2>Top-rated LMS programs designed for real career growth</h2>
+          <p>Choose from high-impact courses designed for working professionals, focused on employability and flexible delivery.</p>
+        </div>
+        <div class="course-grid">
+          <article class="course-card">
+            <div class="course-card-thumb">
+              <img src="https://storage.googleapis.com/edukyu-1.firebasestorage.app/college-images/Images/courseBanner/mba.avif" alt="MBA course banner" />
+            </div>
+            <div class="course-card-header">
+              <span class="course-label">MBA</span>
+              <span class="course-rating">4.8 ★</span>
+            </div>
+            <h3>Online MBA Program</h3>
+            <p>Complete management program with live sessions, industry projects, and placement mentoring.</p>
+            <div class="course-list">
+              <span>2 Years</span>
+              <span>20 hrs/week</span>
+              <span>Live & self-paced</span>
+            </div>
+            <div class="course-footer">
+              <span class="course-price">₹ 88,500</span>
+              <a class="btn btn-secondary btn-small" href="#contact">View Course</a>
+            </div>
+          </article>
+          <article class="course-card">
+            <div class="course-card-thumb">
+              <img src="https://storage.googleapis.com/edukyu-1.firebasestorage.app/college-images/Images/courseBanner/mca.avif" alt="MCA course banner" />
+            </div>
+            <div class="course-card-header">
+              <span class="course-label">MCA</span>
+              <span class="course-rating">4.7 ★</span>
+            </div>
+            <h3>Online MCA Program</h3>
+            <p>Tech-focused curriculum, live coding labs, and career support for software roles.</p>
+            <div class="course-list">
+              <span>2 Years</span>
+              <span>18 hrs/week</span>
+              <span>Capstone project</span>
+            </div>
+            <div class="course-footer">
+              <span class="course-price">₹ 87,500</span>
+              <a class="btn btn-secondary btn-small" href="#contact">View Course</a>
+            </div>
+          </article>
+          <article class="course-card">
+            <div class="course-card-thumb">
+              <img src="https://storage.googleapis.com/edukyu-1.firebasestorage.app/college-images/Images/courseBanner/mcom.avif" alt="B.Com course banner" />
+            </div>
+            <div class="course-card-header">
+              <span class="course-label">B.Com</span>
+              <span class="course-rating">4.6 ★</span>
+            </div>
+            <h3>Online B.Com Program</h3>
+            <p>Practical commerce education with accounting, finance, and analytics modules.</p>
+            <div class="course-list">
+              <span>3 Years</span>
+              <span>15 hrs/week</span>
+              <span>Interactive labs</span>
+            </div>
+            <div class="course-footer">
+              <span class="course-price">₹ 45,000</span>
+              <a class="btn btn-secondary btn-small" href="#contact">View Course</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section features-section">
+      <div class="container features-grid">
+        <div class="feature-copy">
+          <span class="eyebrow">LMS Features</span>
+          <h2>Build, deliver and manage learning in one platform.</h2>
+          <p>LMS Bharat gives students and institutions a seamless learning experience with course tracking, live classrooms, assessment tools, and student analytics.</p>
+        </div>
+        <div class="feature-cards">
+          <article class="feature-card">
+            <div class="feature-card-top">
+              <span class="feature-card-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="4" y="10" width="4" height="10" rx="1" />
+                  <rect x="10" y="6" width="4" height="14" rx="1" />
+                  <rect x="16" y="2" width="4" height="18" rx="1" />
+                </svg>
+              </span>
+              <h3>Course dashboard</h3>
+            </div>
+            <p>Monitor learner progress, assignments, and completion status from a polished centralized dashboard.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-card-top">
+              <span class="feature-card-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="5" width="18" height="12" rx="2" />
+                  <polygon points="10,8 16,12 10,16" />
+                  <path d="M12 17.5v3" stroke-width="2" stroke-linecap="round" />
+                </svg>
+              </span>
+              <h3>Live classes</h3>
+            </div>
+            <p>Deliver live sessions with scheduling, attendance tracking, and seamless classroom engagement tools.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-card-top">
+              <span class="feature-card-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M8 3h8l3 3v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z" />
+                  <path d="M8 3v4h8" />
+                  <path d="M9 12h6" stroke-width="2" stroke-linecap="round" />
+                  <path d="M9 16h4" stroke-width="2" stroke-linecap="round" />
+                </svg>
+              </span>
+              <h3>Assessments & certification</h3>
+            </div>
+            <p>Launch quizzes, grade assignments, and issue verified certificates for measurable learning outcomes.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section testimonials" id="testimonials">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Testimonials</span>
+          <h2>Students who found the right pathway</h2>
+        </div>
+        <div class="testimonial-grid">
+          <article class="testimonial-card">
+            <p>"LMS Bharat helped me select the right online MBA and made the full admission process easy."</p>
+            <h4>Anurag Sharma</h4>
+            <span>Deputy Manager</span>
+          </article>
+          <article class="testimonial-card">
+            <p>"Their team guided me through every step, from fees to eligibility, with clarity and speed."</p>
+            <h4>Pooja Sarkar</h4>
+            <span>Account Executive</span>
+          </article>
+          <article class="testimonial-card">
+            <p>"I found a flexible online course that fits my job and helps me grow professionally."</p>
+            <h4>Nilutpal Goswami</h4>
+            <span>Assistant Manager</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tools-section" id="tools">
+      <div class="container tools-layout">
+        <div>
+          <span class="eyebrow">Platform tools</span>
+          <h2>Tools that support students and counsellors</h2>
+          <p>Use the LMS Bharat toolkit to simplify academic planning, fee calculation, and course comparisons.</p>
+        </div>
+        <div class="tool-grid">
+          <article class="tool-card">SGPA to Percentage</article>
+          <article class="tool-card">CGPA Converter</article>
+          <article class="tool-card">EMI Calculator</article>
+          <article class="tool-card">Compare Colleges</article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta-banner">
+      <div class="container cta-inner">
+        <div>
+          <span class="eyebrow">Ready to begin?</span>
+          <h2>Get free guidance and choose a course that fits your future.</h2>
+        </div>
+        <a class="btn btn-primary" href="#contact">Get Free Guidance</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand footer-brand" href="#">LMS Bharat</a>
+        <p>Your trusted online education partner for modern career growth.</p>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p>+91 83368 89553</p>
+        <p><a href="mailto:hi@edukyu.com">hi@edukyu.com</a></p>
+      </div>
+      <div>
+        <h3>Quick links</h3>
+        <a href="#universities">Universities</a>
+        <a href="#courses">Courses</a>
+        <a href="#tools">Tools</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 LMS Bharat. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div class="toast-banner" id="toastBanner">
+    <div>
+      <strong>Free career guidance</strong>
+      <span>Chat with our counsellors now.</span>
+    </div>
+    <button class="btn btn-primary" onclick="scrollToContact()">Talk Now</button>
+    <button class="toast-close" id="toastClose" aria-label="Dismiss">×</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

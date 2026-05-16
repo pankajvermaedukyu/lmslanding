@@ -1,0 +1,13 @@
+{
+  "name": "edukyu-landing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "EduKyu-themed landing page for LMS Bharat project.",
+  "scripts": {
+    "dev": "live-server --open=./index.html --port=3000",
+    "start": "npm run dev"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
