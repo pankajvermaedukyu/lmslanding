@@ -2,12 +2,54 @@ const menuToggle = document.querySelector('.menu-toggle');
 const mobileMenu = document.getElementById('mobileMenu');
 const toastBanner = document.getElementById('toastBanner');
 const toastClose = document.getElementById('toastClose');
+const siteHeader = document.querySelector('.site-header');
+
+// ── Sticky navbar ─────────────────────────────────────────
+// Uses IntersectionObserver on a 1px sentinel at the top of the hero.
+// When the sentinel leaves the viewport (user scrolled past hero top),
+// the header turns solid white. When it re-enters, it goes transparent.
+if (siteHeader) {
+  const sentinel = document.querySelector('.hero-sentinel');
+
+  if (sentinel && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        siteHeader.classList.toggle('scrolled', !entry.isIntersecting);
+        // keep mobile menu background in sync
+        if (mobileMenu && mobileMenu.classList.contains('open')) {
+          mobileMenu.style.top = siteHeader.offsetHeight + 'px';
+        }
+      },
+      { threshold: 0, rootMargin: '0px' }
+    );
+    observer.observe(sentinel);
+  } else {
+    // Fallback for browsers without IntersectionObserver
+    const hero = document.querySelector('.hero');
+    const onScroll = () => {
+      const heroBottom = hero ? hero.getBoundingClientRect().bottom : 0;
+      siteHeader.classList.toggle('scrolled', heroBottom <= siteHeader.offsetHeight);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  // Set CSS var for mobile menu offset
+  const setHeaderHeight = () => {
+    document.documentElement.style.setProperty('--header-h', siteHeader.offsetHeight + 'px');
+  };
+  setHeaderHeight();
+  window.addEventListener('resize', setHeaderHeight);
+}
 
 if (menuToggle && mobileMenu) {
   menuToggle.addEventListener('click', () => {
-    mobileMenu.classList.toggle('open');
-    menuToggle.textContent = mobileMenu.classList.contains('open') ? 'Close' : 'Menu';
-    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    const isOpen = mobileMenu.classList.toggle('open');
+    menuToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    menuToggle.setAttribute('aria-expanded', isOpen);
+    // position mobile menu flush below the header
+    mobileMenu.style.top = siteHeader.offsetHeight + 'px';
+    document.body.style.overflow = isOpen ? 'hidden' : '';
   });
 
   // Close mobile menu when a link is clicked
@@ -15,7 +57,8 @@ if (menuToggle && mobileMenu) {
   mobileMenuLinks.forEach(link => {
     link.addEventListener('click', () => {
       mobileMenu.classList.remove('open');
-      menuToggle.textContent = 'Menu';
+      menuToggle.setAttribute('aria-label', 'Open menu');
+      menuToggle.setAttribute('aria-expanded', false);
       document.body.style.overflow = '';
     });
   });
@@ -24,7 +67,8 @@ if (menuToggle && mobileMenu) {
   document.addEventListener('click', (e) => {
     if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target) && mobileMenu.classList.contains('open')) {
       mobileMenu.classList.remove('open');
-      menuToggle.textContent = 'Menu';
+      menuToggle.setAttribute('aria-label', 'Open menu');
+      menuToggle.setAttribute('aria-expanded', false);
       document.body.style.overflow = '';
     }
   });
@@ -32,7 +76,10 @@ if (menuToggle && mobileMenu) {
 
 if (toastClose && toastBanner) {
   toastClose.addEventListener('click', () => {
-    toastBanner.style.display = 'none';
+    toastBanner.classList.add('hiding');
+    toastBanner.addEventListener('animationend', () => {
+      toastBanner.style.display = 'none';
+    }, { once: true });
   });
 }
 
