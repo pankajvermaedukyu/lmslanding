@@ -86,3 +86,15 @@ if (toastClose && toastBanner) {
 function scrollToContact() {
   document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
+
+// ── Scroll to Top ─────────────────────────────────────────
+const scrollTopBtn = document.getElementById('scrollTop');
+if (scrollTopBtn) {
+  window.addEventListener('scroll', () => {
+    scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+  }, { passive: true });
+
+  scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
