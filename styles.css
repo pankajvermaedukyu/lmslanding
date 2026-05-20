@@ -65,23 +65,174 @@ a {
   box-shadow: 0 2px 20px rgba(2, 75, 83, 0.08);
 }
 
+/* ── Mobile menu ────────────────────────────────────────── */
 .mobile-menu {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 99;
+  z-index: 98;
+  /* hidden state — slides up out of view */
+  transform: translateY(-110%);
+  transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.mobile-menu.open {
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.mobile-menu-inner {
+  background: #ffffff;
+  border-bottom: 1px solid rgba(2, 75, 83, 0.1);
+  box-shadow: 0 12px 40px rgba(2, 75, 83, 0.12);
+  padding: 8px 16px 20px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  background: transparent;
-  border-bottom: none;
-  padding: 0;
-  max-height: 0;
-  overflow: hidden;
-  transform: translateY(-100%);
-  transition: transform 0.35s ease, padding 0.35s ease, max-height 0.35s ease;
+  gap: 2px;
+  /* top padding set by JS to clear the header */
+  padding-top: var(--header-h, 72px);
 }
+
+/* Backdrop */
+.mobile-menu-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 97;
+  background: rgba(1, 30, 34, 0.45);
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-menu-backdrop.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Links */
+.mobile-menu-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 14px;
+  border-radius: 12px;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.mobile-menu-link:hover,
+.mobile-menu-link:focus-visible {
+  background: rgba(2, 75, 83, 0.06);
+  color: var(--surface);
+}
+
+.mobile-menu-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(2, 75, 83, 0.07);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--surface);
+  flex-shrink: 0;
+  transition: background 0.18s ease;
+}
+
+.mobile-menu-link:hover .mobile-menu-icon {
+  background: var(--surface);
+  color: #ffffff;
+}
+
+.mobile-menu-icon .material-symbols-rounded {
+  font-size: 20px;
+}
+
+/* CTA button inside menu */
+.mobile-menu-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 12px;
+  padding: 14px 20px;
+  border-radius: 12px;
+  background: var(--surface);
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.mobile-menu-cta:hover {
+  background: #035f69;
+  color: #ffffff;
+}
+
+.mobile-menu-cta .material-symbols-rounded {
+  font-size: 20px;
+}
+
+/* ── Animated hamburger icon ────────────────────────────── */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(2, 75, 83, 0.16);
+  border-radius: 10px;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.menu-toggle:hover {
+  background: rgba(2, 75, 83, 0.06);
+  border-color: var(--surface);
+}
+
+.menu-toggle-bar {
+  display: block;
+  width: 18px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--surface);
+  transform-origin: center;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.2s ease,
+              width 0.3s ease;
+}
+
+/* Open state — animate to X */
+.menu-toggle.open .bar-1 {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.open .bar-2 {
+  opacity: 0;
+  width: 0;
+}
+
+.menu-toggle.open .bar-3 {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.menu-toggle-label {
+  display: none;
+}
+
 
 .header-inner {
   display: flex;
@@ -115,6 +266,10 @@ a {
 .site-logo-lms {
   height: 68px;
 }
+
+/* Logo swap: show landscape on desktop, mark on mobile */
+.logo-mobile { display: none; }
+.logo-desktop { display: block; }
 
 .site-nav {
   display: flex;
@@ -220,29 +375,6 @@ a {
 
 .menu-toggle-label {
   display: inline;
-}
-
-.mobile-menu.open {
-  transform: translateY(var(--header-h, 72px));
-  padding: 16px 20px;
-  max-height: 500px;
-  background: #ffffff;
-  border-bottom: 1px solid rgba(2, 75, 83, 0.08);
-  box-shadow: 0 8px 24px rgba(2, 75, 83, 0.08);
-}
-
-.mobile-menu a {
-  color: var(--surface);
-  text-decoration: none;
-  font-weight: 600;
-  padding: 12px 16px;
-  border-radius: 12px;
-  transition: all 0.2s ease;
-}
-
-.mobile-menu a:hover {
-  background: rgba(255, 199, 15, 0.12);
-  color: var(--accent-dark);
 }
 
 .hero {
@@ -1311,7 +1443,7 @@ h1 {
   background: linear-gradient(135deg, #012e34 0%, #024b53 45%, #035f69 100%);
   border-radius: 32px;
   width: min(1280px, calc(100% - 16px));
-  margin: 0 auto 80px;
+  margin: 80px auto 80px;
 }
 
 .cta-blob {
@@ -1969,11 +2101,79 @@ h1 {
 
   .features-layout {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 24px;
   }
 
   .features-right {
     position: static;
+  }
+
+  /* Horizontal scrollable icon-only tab row on tablet/mobile */
+  .features-tab-list {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: visible;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    gap: 8px;
+    padding-bottom: 6px;
+    /* don't clip the scrollable content */
+    width: 100%;
+    -webkit-mask-image: linear-gradient(to right, black 75%, transparent 100%);
+    mask-image: linear-gradient(to right, black 75%, transparent 100%);
+  }
+
+  .features-tab-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .features-tab {
+    flex-direction: column;
+    flex: 0 0 auto;          /* never shrink, never grow */
+    gap: 6px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    width: 72px;             /* fixed width — no overflow */
+    text-align: center;
+    border: 1px solid rgba(2, 75, 83, 0.1);
+    background: #ffffff;
+  }
+
+  .features-tab.active {
+    background: rgba(2, 75, 83, 0.06);
+    border-color: rgba(2, 75, 83, 0.2);
+  }
+
+  .features-tab-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    flex-shrink: 0;
+    align-self: center;
+  }
+
+  /* Hide subtitle, keep only bold title */
+  .features-tab-text span {
+    display: none;
+  }
+
+  .features-tab-text strong {
+    font-size: 0.68rem;
+    font-weight: 600;
+    white-space: normal;     /* allow wrapping inside fixed width */
+    line-height: 1.2;
+    word-break: break-word;
+  }
+
+  /* Hide chevron */
+  .features-tab-chevron {
+    display: none;
+  }
+
+  /* Panel full width */
+  .features-panel {
+    padding: 20px 18px;
   }
 
   .features-grid-v2 {
@@ -2012,7 +2212,7 @@ h1 {
   }
 
   .hero-visual {
-    order: -1;
+    order: 1;
   }
 
   .hero {
@@ -2108,6 +2308,10 @@ h1 {
     height: 56px;
   }
 
+  /* Swap to mark logo on mobile */
+  .logo-desktop { display: none; }
+  .logo-mobile  { display: block; height: 44px; }
+
   /* Login: text only, no SVG icon */
   .btn-login {
     order: 3;
@@ -2147,6 +2351,19 @@ h1 {
     grid-template-columns: 1fr;
   }
 
+  /* Features — tighter on small phones */
+  .features-tab {
+    width: 62px;
+    padding: 8px 8px;
+  }
+
+  .features-tab-text strong {
+    font-size: 0.62rem;
+  }
+
+  .features-grid-v2 {
+    grid-template-columns: 1fr;
+  }
   .features-grid-v2 {
     grid-template-columns: 1fr;
   }
@@ -2205,43 +2422,43 @@ h1 {
     justify-content: center;
   }
 
-  /* Stats: 2x2 grid */
+  /* Stats: same as desktop */
   .hero-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 32px;
     margin-top: 20px;
   }
 
   .hero-stat {
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    text-align: center;
-    gap: 8px;
-    background: #ffffff;
-    border: 1px solid rgba(2, 75, 83, 0.08);
-    border-radius: 14px;
-    padding: 14px 10px;
-    box-shadow: 0 4px 12px rgba(2, 75, 83, 0.05);
+    text-align: left;
+    gap: 12px;
+    background: none;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
   }
 
   .hero-stat-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
   }
 
   .hero-stat strong {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
   }
 
   .hero-stat span {
-    font-size: 0.72rem;
+    font-size: 0.75rem;
   }
 
-  /* Hero visual — hide on very small, show compact on larger mobile */
+  /* Hero visual — show below copy on mobile */
   .hero-visual {
-    order: -1;
+    order: 1;
   }
 
   .visual-frame {
@@ -2318,23 +2535,51 @@ h1 {
   .cta-banner {
     border-radius: 20px;
     margin-bottom: 40px;
+    width: calc(100% - 16px);
   }
 
   .cta-inner {
-    padding: 36px 24px;
-    gap: 24px;
+    padding: 32px 20px;
+    gap: 20px;
   }
 
-  .cta-card {
-    padding: 24px 20px;
+  .cta-copy h2 {
+    font-size: clamp(1.4rem, 5vw, 1.9rem);
+    margin-bottom: 10px;
   }
 
-  .cta-card-heading {
-    font-size: 1.2rem;
+  .cta-copy > p {
+    font-size: 0.9rem;
+    margin-bottom: 16px;
   }
 
   .cta-trust {
     gap: 8px;
+    flex-direction: column;
+  }
+
+  .cta-trust-item {
+    font-size: 0.82rem;
+  }
+
+  .cta-card {
+    padding: 22px 18px;
+    gap: 4px;
+  }
+
+  .cta-card-heading {
+    font-size: 1.15rem;
+  }
+
+  .btn-cta-primary,
+  .btn-cta-secondary {
+    font-size: 0.9rem;
+    padding: 13px 16px;
+    border-radius: 12px;
+  }
+
+  .cta-card-note {
+    font-size: 0.75rem;
   }
 
   .cta-trust-item {
@@ -2381,18 +2626,17 @@ h1 {
   }
 
   .hero-stats {
-    gap: 14px 20px;
+    gap: 20px 32px;
   }
 
   .hero-stat-icon {
-    width: 36px;
-    height: 36px;
-    font-size: 0.95rem;
-    border-radius: 10px;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
   }
 
   .hero-stat strong {
-    font-size: 1rem;
+    font-size: 1.15rem;
   }
 
   .course-list span,
@@ -2459,33 +2703,25 @@ h1 {
     padding: 10px 14px;
   }
 
-  /* CTA */
+  /* CTA — very small screens */
   .cta-inner {
-    padding: 28px 18px;
-    gap: 20px;
-  }
-
-  .cta-copy h2 {
-    font-size: 1.55rem;
-  }
-
-  .cta-copy > p {
-    font-size: 0.92rem;
+    padding: 24px 16px;
+    gap: 16px;
   }
 
   .cta-card {
-    padding: 20px 16px;
+    padding: 18px 14px;
   }
 
   .btn-cta-primary,
   .btn-cta-secondary {
-    font-size: 0.92rem;
-    padding: 12px 18px;
-    border-radius: 12px;
+    font-size: 0.88rem;
+    padding: 11px 14px;
+    border-radius: 10px;
   }
 
   .cta-card-heading {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
   }
 }
 

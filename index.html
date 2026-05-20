@@ -10,33 +10,30 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0"
+    rel="stylesheet" />
 </head>
 
 <body>
 
   <header class="site-header" id="siteHeader">
     <div class="container header-inner">
-      <button class="menu-toggle" aria-label="Open menu">
-        <svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20" fill="none" stroke="currentColor"
-          stroke-width="2.5" stroke-linecap="round">
-          <line x1="3" y1="6" x2="21" y2="6" />
-          <line x1="3" y1="12" x2="21" y2="12" />
-          <line x1="3" y1="18" x2="21" y2="18" />
-        </svg>
-        <span class="menu-toggle-label">Menu</span>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+        <span class="menu-toggle-bar bar-1"></span>
+        <span class="menu-toggle-bar bar-2"></span>
+        <span class="menu-toggle-bar bar-3"></span>
       </button>
       <a class="brand" href="#">
-        <img src="./LMS Landscape.png" alt="LMS Bharat" class="site-logo site-logo-lms" />
+        <img src="./LMS Landscape.png" alt="LMS Bharat" class="site-logo site-logo-lms logo-desktop" />
+        <img src="./LMS.png" alt="LMS Bharat" class="site-logo logo-mobile" />
       </a>
       <nav class="site-nav" aria-label="Primary navigation">
         <div class="nav-capsule">
-          <a href="#home"         class="nav-tab" data-section="home">Home</a>
+          <a href="#home" class="nav-tab" data-section="home">Home</a>
           <a href="#universities" class="nav-tab" data-section="universities">Universities</a>
-          <a href="#courses"      class="nav-tab" data-section="courses">Courses</a>
-          <a href="#features"     class="nav-tab" data-section="features">Features</a>
-          <a href="#tools"        class="nav-tab" data-section="tools">Tools</a>
-          <a href="#contact"      class="nav-tab" data-section="contact">Contact</a>
+          <a href="#courses" class="nav-tab" data-section="courses">Courses</a>
+          <a href="#features" class="nav-tab" data-section="features">Features</a>
+          <a href="#contact" class="nav-tab" data-section="contact">Contact</a>
         </div>
       </nav>
       <a class="btn btn-login" href="https://login.lmsbharat.com/">
@@ -49,14 +46,35 @@
     </div>
   </header>
 
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#home">Home</a>
-    <a href="#universities">Universities</a>
-    <a href="#courses">Courses</a>
-    <a href="#features">Features</a>
-    <a href="#tools">Tools</a>
-    <a href="#contact">Contact</a>
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-menu-inner">
+      <a href="#home" class="mobile-menu-link">
+        <span class="mobile-menu-icon"><span class="material-symbols-rounded">home</span></span>
+        <span>Home</span>
+      </a>
+      <a href="#universities" class="mobile-menu-link">
+        <span class="mobile-menu-icon"><span class="material-symbols-rounded">school</span></span>
+        <span>Universities</span>
+      </a>
+      <a href="#courses" class="mobile-menu-link">
+        <span class="mobile-menu-icon"><span class="material-symbols-rounded">menu_book</span></span>
+        <span>Courses</span>
+      </a>
+      <a href="#features" class="mobile-menu-link">
+        <span class="mobile-menu-icon"><span class="material-symbols-rounded">dashboard</span></span>
+        <span>Features</span>
+      </a>
+      <a href="#contact" class="mobile-menu-link">
+        <span class="mobile-menu-icon"><span class="material-symbols-rounded">mail</span></span>
+        <span>Contact</span>
+      </a>
+      <a href="https://login.lmsbharat.com/" class="mobile-menu-cta">
+        <span class="material-symbols-rounded">login</span>
+        Login to LMS Bharat
+      </a>
+    </div>
   </div>
+  <div class="mobile-menu-backdrop" id="mobileMenuBackdrop"></div>
 
   <main>
     <section class="hero" id="home">
@@ -66,20 +84,24 @@
       <div class="hero-body">
         <div class="container hero-layout">
           <div class="hero-copy">
-            <span class="eyebrow">India's smart learning platform</span>
-            <h1>Learn future-ready skills
-              from industry experts</h1>
+            <span class="platform-props-badge">India's smart learning platform</span>
+            <h1>Everything you need to know about
+              <span style="color: var(--accent);"></span>LMS Bharat</span>
+            </h1>
             <p>Live classes, industry projects, certifications & placement support to
               accelerate your career.</p>
             <div class="hero-actions">
               <a class="btn btn-primary" href="#courses">Explore Courses</a>
-              <a class="btn btn-secondary" href="#universities">View Partners</a>
             </div>
             <div class="hero-stats">
               <div class="hero-stat">
                 <span class="hero-stat-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                   </svg>
                 </span>
                 <div>
@@ -89,8 +111,10 @@
               </div>
               <div class="hero-stat">
                 <span class="hero-stat-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
                   </svg>
                 </span>
                 <div>
@@ -100,8 +124,11 @@
               </div>
               <div class="hero-stat">
                 <span class="hero-stat-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="12" cy="8" r="4" />
+                    <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                   </svg>
                 </span>
                 <div>
@@ -111,8 +138,12 @@
               </div>
               <div class="hero-stat">
                 <span class="hero-stat-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <rect x="2" y="7" width="20" height="14" rx="2" />
+                    <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+                    <line x1="12" y1="12" x2="12" y2="16" />
+                    <line x1="10" y1="14" x2="14" y2="14" />
                   </svg>
                 </span>
                 <div>
@@ -150,7 +181,8 @@
           <div class="prop-card">
             <span class="prop-icon"><span class="material-symbols-rounded">cloud</span></span>
             <h3>Cloud-based infrastructure</h3>
-            <p>Fully hosted on secure cloud servers. No installation required — access from any browser, anywhere in the world.</p>
+            <p>Fully hosted on secure cloud servers. No installation required — access from any browser, anywhere in the
+              world.</p>
             <div class="prop-tags">
               <span>SaaS</span>
               <span>Always updated</span>
@@ -160,7 +192,8 @@
           <div class="prop-card">
             <span class="prop-icon"><span class="material-symbols-rounded">smartphone</span></span>
             <h3>Mobile-first design</h3>
-            <p>Responsive UI built for smartphones and tablets first. Offline mode lets learners download and study without internet.</p>
+            <p>Responsive UI built for smartphones and tablets first. Offline mode lets learners download and study
+              without internet.</p>
             <div class="prop-tags">
               <span>iOS</span>
               <span>Android</span>
@@ -190,19 +223,22 @@
           </div>
 
           <div class="prop-card">
-            <span class="prop-icon"><span class="material-symbols-rounded">api</span></span>
-            <h3>API &amp; integrations</h3>
-            <p>Open REST APIs and native connectors to Zoom, Slack, Google Workspace, Salesforce and 50+ tools.</p>
+            <span class="prop-icon"><span class="material-symbols-rounded">hub</span></span>
+            <h3>Seamless integrations</h3>
+            <p>Connect with Zoom for live classes, YouTube for recorded lectures, and WhatsApp for instant student
+              updates — everything works together in one place.</p>
             <div class="prop-tags">
-              <span>REST API</span>
-              <span>Webhooks</span>
+              <span>Zoom</span>
+              <span>YouTube</span>
+              <span>WhatsApp</span>
             </div>
           </div>
 
           <div class="prop-card">
             <span class="prop-icon"><span class="material-symbols-rounded">palette</span></span>
             <h3>White-label ready</h3>
-            <p>Fully customizable branding — your logo, colors, domain and email communications. Looks like your product.</p>
+            <p>Fully customizable branding — your logo, colors, domain and email communications. Looks like your
+              product.</p>
             <div class="prop-tags">
               <span>Custom domain</span>
               <span>Branded</span>
@@ -217,35 +253,81 @@
       <div class="container">
         <div class="section-heading">
           <span class="platform-props-badge">Explore our Partner Universities</span>
-          <h2 class="platform-props-heading">Online programs from India's top institutions</h2>
-          <p class="platform-props-sub">Earn a degree from verified universities with flexible schedules and affordable fees.</p>
+          <h2 class="platform-props-heading">Programs from India’s top institutions
+          </h2>
+          <p class="platform-props-sub">Earn a degree from verified universities with flexible schedules and affordable
+            fees.</p>
         </div>
         <div class="university-carousel" aria-label="Partner universities">
           <div class="university-track">
             <!-- Original set -->
-            <div class="university-card"><img src="https://firebasestorage.googleapis.com/v0/b/edukyu-1.firebasestorage.app/o/colleges%2Flogos%2F1767859112668_n5w45jmpm.webp?alt=media&token=ff7d07d1-4dcc-40be-8fdf-13d68642c7c6" alt="Amity University" /></div>
-            <div class="university-card"><img src="https://storage.googleapis.com/edukyu-1.firebasestorage.app/external-images/dpu-logo.png" alt="D.Y. Patil Vidyapeeth" /></div>
-            <div class="university-card"><img src="https://firebasestorage.googleapis.com/v0/b/edukyu-1.firebasestorage.app/o/colleges%2Flogos%2F1767859122785_tyc92szig.webp?alt=media&token=b6e80216-0de5-4aeb-8d09-c1a6134ee7c0" alt="Jain University" /></div>
-            <div class="university-card"><img src="https://firebasestorage.googleapis.com/v0/b/edukyu-1.firebasestorage.app/o/colleges%2Flogos%2F1767859075405_0jbxprzbb.webp?alt=media&token=9bc73ec7-3867-419e-8809-f2419248bce9" alt="Lovely Professional University" /></div>
-            <div class="university-card"><img src="https://firebasestorage.googleapis.com/v0/b/edukyu-1.firebasestorage.app/o/colleges%2Flogos%2F1767859100640_r3kmyhcsl.webp?alt=media&token=90a0b82d-9536-4364-ad66-5015c90c1e1c" alt="Manipal University Jaipur" /></div>
-            <div class="university-card"><img src="https://firebasestorage.googleapis.com/v0/b/edukyu-1.firebasestorage.app/o/colleges%2Flogos%2F1767859085615_4690xb2db.webp?alt=media&token=546f7ed1-ece3-434f-837b-6dd8addd76e1" alt="Shoolini University" /></div>
-            <div class="university-card"><img src="https://storage.googleapis.com/edukyu-1.firebasestorage.app/external-images/sikkim-card-logo.jpg" alt="Sikkim Manipal University" /></div>
-            <div class="university-card"><img src="https://storage.googleapis.com/edukyu-1.firebasestorage.app/external-images/logo.jpg" alt="Noida International University" /></div>
-            <div class="university-card"><img src="https://storage.googleapis.com/edukyu-1.firebasestorage.app/external-images/logo.png" alt="Vivekanand Global University" /></div>
-            <div class="university-card"><img src="https://storage.googleapis.com/edukyu-1.firebasestorage.app/external-images/nmims-logo.png" alt="NMIMS University" /></div>
-            <div class="university-card"><img src="https://storage.googleapis.com/edukyu-1.firebasestorage.app/external-images/uttarachal-logo.png" alt="Uttaranchal University" /></div>
+            <div class="university-card"><img
+                src="https://firebasestorage.googleapis.com/v0/b/edukyu-1.firebasestorage.app/o/colleges%2Flogos%2F1767859112668_n5w45jmpm.webp?alt=media&token=ff7d07d1-4dcc-40be-8fdf-13d68642c7c6"
+                alt="Amity University" /></div>
+            <div class="university-card"><img
+                src="https://storage.googleapis.com/edukyu-1.firebasestorage.app/external-images/dpu-logo.png"
+                alt="D.Y. Patil Vidyapeeth" /></div>
+            <div class="university-card"><img
+                src="https://firebasestorage.googleapis.com/v0/b/edukyu-1.firebasestorage.app/o/colleges%2Flogos%2F1767859122785_tyc92szig.webp?alt=media&token=b6e80216-0de5-4aeb-8d09-c1a6134ee7c0"
+                alt="Jain University" /></div>
+            <div class="university-card"><img
+                src="https://firebasestorage.googleapis.com/v0/b/edukyu-1.firebasestorage.app/o/colleges%2Flogos%2F1767859075405_0jbxprzbb.webp?alt=media&token=9bc73ec7-3867-419e-8809-f2419248bce9"
+                alt="Lovely Professional University" /></div>
+            <div class="university-card"><img
+                src="https://firebasestorage.googleapis.com/v0/b/edukyu-1.firebasestorage.app/o/colleges%2Flogos%2F1767859100640_r3kmyhcsl.webp?alt=media&token=90a0b82d-9536-4364-ad66-5015c90c1e1c"
+                alt="Manipal University Jaipur" /></div>
+            <div class="university-card"><img
+                src="https://firebasestorage.googleapis.com/v0/b/edukyu-1.firebasestorage.app/o/colleges%2Flogos%2F1767859085615_4690xb2db.webp?alt=media&token=546f7ed1-ece3-434f-837b-6dd8addd76e1"
+                alt="Shoolini University" /></div>
+            <div class="university-card"><img
+                src="https://storage.googleapis.com/edukyu-1.firebasestorage.app/external-images/sikkim-card-logo.jpg"
+                alt="Sikkim Manipal University" /></div>
+            <div class="university-card"><img
+                src="https://storage.googleapis.com/edukyu-1.firebasestorage.app/external-images/logo.jpg"
+                alt="Noida International University" /></div>
+            <div class="university-card"><img
+                src="https://storage.googleapis.com/edukyu-1.firebasestorage.app/external-images/logo.png"
+                alt="Vivekanand Global University" /></div>
+            <div class="university-card"><img
+                src="https://storage.googleapis.com/edukyu-1.firebasestorage.app/external-images/nmims-logo.png"
+                alt="NMIMS University" /></div>
+            <div class="university-card"><img
+                src="https://storage.googleapis.com/edukyu-1.firebasestorage.app/external-images/uttarachal-logo.png"
+                alt="Uttaranchal University" /></div>
             <!-- Duplicate set for seamless loop -->
-            <div class="university-card" aria-hidden="true"><img src="https://firebasestorage.googleapis.com/v0/b/edukyu-1.firebasestorage.app/o/colleges%2Flogos%2F1767859112668_n5w45jmpm.webp?alt=media&token=ff7d07d1-4dcc-40be-8fdf-13d68642c7c6" alt="" /></div>
-            <div class="university-card" aria-hidden="true"><img src="https://storage.googleapis.com/edukyu-1.firebasestorage.app/external-images/dpu-logo.png" alt="" /></div>
-            <div class="university-card" aria-hidden="true"><img src="https://firebasestorage.googleapis.com/v0/b/edukyu-1.firebasestorage.app/o/colleges%2Flogos%2F1767859122785_tyc92szig.webp?alt=media&token=b6e80216-0de5-4aeb-8d09-c1a6134ee7c0" alt="" /></div>
-            <div class="university-card" aria-hidden="true"><img src="https://firebasestorage.googleapis.com/v0/b/edukyu-1.firebasestorage.app/o/colleges%2Flogos%2F1767859075405_0jbxprzbb.webp?alt=media&token=9bc73ec7-3867-419e-8809-f2419248bce9" alt="" /></div>
-            <div class="university-card" aria-hidden="true"><img src="https://firebasestorage.googleapis.com/v0/b/edukyu-1.firebasestorage.app/o/colleges%2Flogos%2F1767859100640_r3kmyhcsl.webp?alt=media&token=90a0b82d-9536-4364-ad66-5015c90c1e1c" alt="" /></div>
-            <div class="university-card" aria-hidden="true"><img src="https://firebasestorage.googleapis.com/v0/b/edukyu-1.firebasestorage.app/o/colleges%2Flogos%2F1767859085615_4690xb2db.webp?alt=media&token=546f7ed1-ece3-434f-837b-6dd8addd76e1" alt="" /></div>
-            <div class="university-card" aria-hidden="true"><img src="https://storage.googleapis.com/edukyu-1.firebasestorage.app/external-images/sikkim-card-logo.jpg" alt="" /></div>
-            <div class="university-card" aria-hidden="true"><img src="https://storage.googleapis.com/edukyu-1.firebasestorage.app/external-images/logo.jpg" alt="" /></div>
-            <div class="university-card" aria-hidden="true"><img src="https://storage.googleapis.com/edukyu-1.firebasestorage.app/external-images/logo.png" alt="" /></div>
-            <div class="university-card" aria-hidden="true"><img src="https://storage.googleapis.com/edukyu-1.firebasestorage.app/external-images/nmims-logo.png" alt="" /></div>
-            <div class="university-card" aria-hidden="true"><img src="https://storage.googleapis.com/edukyu-1.firebasestorage.app/external-images/uttarachal-logo.png" alt="" /></div>
+            <div class="university-card" aria-hidden="true"><img
+                src="https://firebasestorage.googleapis.com/v0/b/edukyu-1.firebasestorage.app/o/colleges%2Flogos%2F1767859112668_n5w45jmpm.webp?alt=media&token=ff7d07d1-4dcc-40be-8fdf-13d68642c7c6"
+                alt="" /></div>
+            <div class="university-card" aria-hidden="true"><img
+                src="https://storage.googleapis.com/edukyu-1.firebasestorage.app/external-images/dpu-logo.png" alt="" />
+            </div>
+            <div class="university-card" aria-hidden="true"><img
+                src="https://firebasestorage.googleapis.com/v0/b/edukyu-1.firebasestorage.app/o/colleges%2Flogos%2F1767859122785_tyc92szig.webp?alt=media&token=b6e80216-0de5-4aeb-8d09-c1a6134ee7c0"
+                alt="" /></div>
+            <div class="university-card" aria-hidden="true"><img
+                src="https://firebasestorage.googleapis.com/v0/b/edukyu-1.firebasestorage.app/o/colleges%2Flogos%2F1767859075405_0jbxprzbb.webp?alt=media&token=9bc73ec7-3867-419e-8809-f2419248bce9"
+                alt="" /></div>
+            <div class="university-card" aria-hidden="true"><img
+                src="https://firebasestorage.googleapis.com/v0/b/edukyu-1.firebasestorage.app/o/colleges%2Flogos%2F1767859100640_r3kmyhcsl.webp?alt=media&token=90a0b82d-9536-4364-ad66-5015c90c1e1c"
+                alt="" /></div>
+            <div class="university-card" aria-hidden="true"><img
+                src="https://firebasestorage.googleapis.com/v0/b/edukyu-1.firebasestorage.app/o/colleges%2Flogos%2F1767859085615_4690xb2db.webp?alt=media&token=546f7ed1-ece3-434f-837b-6dd8addd76e1"
+                alt="" /></div>
+            <div class="university-card" aria-hidden="true"><img
+                src="https://storage.googleapis.com/edukyu-1.firebasestorage.app/external-images/sikkim-card-logo.jpg"
+                alt="" /></div>
+            <div class="university-card" aria-hidden="true"><img
+                src="https://storage.googleapis.com/edukyu-1.firebasestorage.app/external-images/logo.jpg" alt="" />
+            </div>
+            <div class="university-card" aria-hidden="true"><img
+                src="https://storage.googleapis.com/edukyu-1.firebasestorage.app/external-images/logo.png" alt="" />
+            </div>
+            <div class="university-card" aria-hidden="true"><img
+                src="https://storage.googleapis.com/edukyu-1.firebasestorage.app/external-images/nmims-logo.png"
+                alt="" /></div>
+            <div class="university-card" aria-hidden="true"><img
+                src="https://storage.googleapis.com/edukyu-1.firebasestorage.app/external-images/uttarachal-logo.png"
+                alt="" /></div>
           </div>
         </div>
       </div>
@@ -275,10 +357,14 @@
               </div>
             </div>
             <ul class="use-case-list">
-              <li><span class="material-symbols-rounded">radio_button_checked</span>Deliver semester-long online degree programs</li>
-              <li><span class="material-symbols-rounded">radio_button_checked</span>Manage student enrolment, attendance &amp; grades</li>
-              <li><span class="material-symbols-rounded">radio_button_checked</span>Host hybrid classes — live + recorded</li>
-              <li><span class="material-symbols-rounded">radio_button_checked</span>Issue verified digital degrees &amp; transcripts</li>
+              <li><span class="material-symbols-rounded">radio_button_checked</span>Deliver semester-long online degree
+                programs</li>
+              <li><span class="material-symbols-rounded">radio_button_checked</span>Manage student enrolment, attendance
+                &amp; grades</li>
+              <li><span class="material-symbols-rounded">radio_button_checked</span>Host hybrid classes — live +
+                recorded</li>
+              <li><span class="material-symbols-rounded">radio_button_checked</span>Issue verified digital degrees &amp;
+                transcripts</li>
             </ul>
           </div>
 
@@ -294,10 +380,14 @@
               </div>
             </div>
             <ul class="use-case-list">
-              <li><span class="material-symbols-rounded">radio_button_checked</span>Onboard new employees with structured paths</li>
-              <li><span class="material-symbols-rounded">radio_button_checked</span>Mandatory compliance &amp; safety training</li>
-              <li><span class="material-symbols-rounded">radio_button_checked</span>Upskill teams with role-based learning tracks</li>
-              <li><span class="material-symbols-rounded">radio_button_checked</span>Track L&amp;D ROI with completion analytics</li>
+              <li><span class="material-symbols-rounded">radio_button_checked</span>Onboard new employees with
+                structured paths</li>
+              <li><span class="material-symbols-rounded">radio_button_checked</span>Mandatory compliance &amp; safety
+                training</li>
+              <li><span class="material-symbols-rounded">radio_button_checked</span>Upskill teams with role-based
+                learning tracks</li>
+              <li><span class="material-symbols-rounded">radio_button_checked</span>Track L&amp;D ROI with completion
+                analytics</li>
             </ul>
           </div>
 
@@ -313,10 +403,13 @@
               </div>
             </div>
             <ul class="use-case-list">
-              <li><span class="material-symbols-rounded">radio_button_checked</span>Sell and monetize online courses at scale</li>
+              <li><span class="material-symbols-rounded">radio_button_checked</span>Sell and monetize online courses at
+                scale</li>
               <li><span class="material-symbols-rounded">radio_button_checked</span>Run live cohort-based bootcamps</li>
-              <li><span class="material-symbols-rounded">radio_button_checked</span>Build branded academies with white-label</li>
-              <li><span class="material-symbols-rounded">radio_button_checked</span>Manage student community &amp; discussions</li>
+              <li><span class="material-symbols-rounded">radio_button_checked</span>Build branded academies with
+                white-label</li>
+              <li><span class="material-symbols-rounded">radio_button_checked</span>Manage student community &amp;
+                discussions</li>
             </ul>
           </div>
 
@@ -335,55 +428,55 @@
 
         <div class="course-boxes">
 
-          <a href="https://edukyu.com/online-mba-programs/top-distance-mba-colleges" target="_blank" class="course-box">
+          <div class="course-box">
             <span class="course-box-icon"><span class="material-symbols-rounded">business_center</span></span>
             <span class="course-box-name">MBA</span>
-          </a>
+          </div>
 
-          <a href="https://edukyu.com/online-mca-program" target="_blank" class="course-box">
+          <div class="course-box">
+            <span class="course-box-icon"><span class="material-symbols-rounded">menu_book</span></span>
+            <span class="course-box-name">MA</span>
+          </div>
+
+          <div class="course-box">
+            <span class="course-box-icon"><span class="material-symbols-rounded">science</span></span>
+            <span class="course-box-name">MSC</span>
+          </div>
+
+          <div class="course-box">
             <span class="course-box-icon"><span class="material-symbols-rounded">code</span></span>
             <span class="course-box-name">MCA</span>
-          </a>
+          </div>
 
-          <a href="https://edukyu.com/online-bcom-program" target="_blank" class="course-box">
+          <div class="course-box">
             <span class="course-box-icon"><span class="material-symbols-rounded">account_balance</span></span>
-            <span class="course-box-name">B.Com</span>
-          </a>
+            <span class="course-box-name">MCOM</span>
+          </div>
 
-          <a href="https://edukyu.com" target="_blank" class="course-box">
+          <div class="course-box">
+            <span class="course-box-icon"><span class="material-symbols-rounded">computer</span></span>
+            <span class="course-box-name">BCA</span>
+          </div>
+
+          <div class="course-box">
+            <span class="course-box-icon"><span class="material-symbols-rounded">receipt_long</span></span>
+            <span class="course-box-name">BCOM</span>
+          </div>
+
+          <div class="course-box">
             <span class="course-box-icon"><span class="material-symbols-rounded">trending_up</span></span>
             <span class="course-box-name">BBA</span>
-          </a>
+          </div>
 
-          <a href="https://edukyu.com" target="_blank" class="course-box">
-            <span class="course-box-icon"><span class="material-symbols-rounded">computer</span></span>
-            <span class="course-box-name">B.Tech</span>
-          </a>
+          <div class="course-box">
+            <span class="course-box-icon"><span class="material-symbols-rounded">biotech</span></span>
+            <span class="course-box-name">BSC</span>
+          </div>
 
-          <a href="https://edukyu.com" target="_blank" class="course-box">
-            <span class="course-box-icon"><span class="material-symbols-rounded">science</span></span>
-            <span class="course-box-name">M.Sc</span>
-          </a>
-
-          <a href="https://edukyu.com" target="_blank" class="course-box">
-            <span class="course-box-icon"><span class="material-symbols-rounded">gavel</span></span>
-            <span class="course-box-name">LLB</span>
-          </a>
-
-          <a href="https://edukyu.com" target="_blank" class="course-box">
-            <span class="course-box-icon"><span class="material-symbols-rounded">psychology</span></span>
-            <span class="course-box-name">Data Science</span>
-          </a>
-
-          <a href="https://edukyu.com" target="_blank" class="course-box">
-            <span class="course-box-icon"><span class="material-symbols-rounded">campaign</span></span>
-            <span class="course-box-name">Digital Marketing</span>
-          </a>
-
-          <a href="https://edukyu.com" target="_blank" class="course-box">
-            <span class="course-box-icon"><span class="material-symbols-rounded">health_and_safety</span></span>
-            <span class="course-box-name">Healthcare Mgmt</span>
-          </a>
+          <div class="course-box">
+            <span class="course-box-icon"><span class="material-symbols-rounded">auto_stories</span></span>
+            <span class="course-box-name">BA</span>
+          </div>
 
         </div>
       </div>
@@ -398,7 +491,8 @@
           <div class="features-left">
             <span class="platform-props-badge">LMS Features</span>
             <h2 class="platform-props-heading">Everything you need to run a world-class learning platform.</h2>
-            <p class="platform-props-sub">From live classrooms to placement support — built for institutions and learners alike.</p>
+            <p class="platform-props-sub">From live classrooms to placement support — built for institutions and
+              learners alike.</p>
 
             <ul class="features-tab-list" role="tablist" aria-label="LMS Features">
               <li class="features-tab active" role="tab" aria-selected="true" data-feature="0" tabindex="0">
@@ -457,7 +551,8 @@
             <div class="features-panel" data-panel="0">
               <div class="features-panel-icon"><span class="material-symbols-rounded">dashboard</span></div>
               <h3>Course dashboard</h3>
-              <p>Monitor every learner's progress, pending assignments, and completion rates from one polished, centralised dashboard. Instructors get a live view of engagement and can act instantly.</p>
+              <p>Monitor every learner's progress, pending assignments, and completion rates from one polished,
+                centralised dashboard. Instructors get a live view of engagement and can act instantly.</p>
               <ul class="features-panel-list">
                 <li><span class="material-symbols-rounded">check_circle</span>Real-time completion tracking</li>
                 <li><span class="material-symbols-rounded">check_circle</span>Assignment &amp; deadline management</li>
@@ -467,7 +562,8 @@
             <div class="features-panel hidden" data-panel="1">
               <div class="features-panel-icon"><span class="material-symbols-rounded">live_tv</span></div>
               <h3>Live classes</h3>
-              <p>Deliver interactive live sessions with built-in scheduling, attendance tracking, hand-raise tools, and breakout rooms. Recordings are auto-saved for later access.</p>
+              <p>Deliver interactive live sessions with built-in scheduling, attendance tracking, hand-raise tools, and
+                breakout rooms. Recordings are auto-saved for later access.</p>
               <ul class="features-panel-list">
                 <li><span class="material-symbols-rounded">check_circle</span>HD video with low latency</li>
                 <li><span class="material-symbols-rounded">check_circle</span>Attendance &amp; engagement tracking</li>
@@ -477,7 +573,8 @@
             <div class="features-panel hidden" data-panel="2">
               <div class="features-panel-icon"><span class="material-symbols-rounded">workspace_premium</span></div>
               <h3>Assessments &amp; certification</h3>
-              <p>Build quizzes, auto-grade assignments, and issue tamper-proof digital certificates. Supports MCQ, subjective, and coding assessments with plagiarism detection.</p>
+              <p>Build quizzes, auto-grade assignments, and issue tamper-proof digital certificates. Supports MCQ,
+                subjective, and coding assessments with plagiarism detection.</p>
               <ul class="features-panel-list">
                 <li><span class="material-symbols-rounded">check_circle</span>Auto-graded &amp; manual assessments</li>
                 <li><span class="material-symbols-rounded">check_circle</span>Verified digital certificates</li>
@@ -487,7 +584,8 @@
             <div class="features-panel hidden" data-panel="3">
               <div class="features-panel-icon"><span class="material-symbols-rounded">insights</span></div>
               <h3>Progress analytics</h3>
-              <p>Deep learner insights with real-time reports, engagement heatmaps, drop-off analysis, and performance trends — all exportable for institutional reporting.</p>
+              <p>Deep learner insights with real-time reports, engagement heatmaps, drop-off analysis, and performance
+                trends — all exportable for institutional reporting.</p>
               <ul class="features-panel-list">
                 <li><span class="material-symbols-rounded">check_circle</span>Engagement &amp; drop-off heatmaps</li>
                 <li><span class="material-symbols-rounded">check_circle</span>Cohort &amp; individual reports</li>
@@ -497,7 +595,8 @@
             <div class="features-panel hidden" data-panel="4">
               <div class="features-panel-icon"><span class="material-symbols-rounded">work</span></div>
               <h3>Placement support</h3>
-              <p>Resume builder, mock interview scheduler, job board access, and direct referrals to 500+ hiring partners. Learners get notified of matching opportunities automatically.</p>
+              <p>Resume builder, mock interview scheduler, job board access, and direct referrals to 500+ hiring
+                partners. Learners get notified of matching opportunities automatically.</p>
               <ul class="features-panel-list">
                 <li><span class="material-symbols-rounded">check_circle</span>AI-assisted resume builder</li>
                 <li><span class="material-symbols-rounded">check_circle</span>500+ hiring partner network</li>
@@ -507,7 +606,8 @@
             <div class="features-panel hidden" data-panel="5">
               <div class="features-panel-icon"><span class="material-symbols-rounded">phone_android</span></div>
               <h3>Mobile learning</h3>
-              <p>Full-featured iOS and Android apps with offline download mode, push notifications, and seamless sync. Learners never miss a session, even without internet.</p>
+              <p>Full-featured iOS and Android apps with offline download mode, push notifications, and seamless sync.
+                Learners never miss a session, even without internet.</p>
               <ul class="features-panel-list">
                 <li><span class="material-symbols-rounded">check_circle</span>iOS &amp; Android native apps</li>
                 <li><span class="material-symbols-rounded">check_circle</span>Offline content download</li>
@@ -531,9 +631,10 @@
 
           <div class="why-item">
             <span class="why-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="2" y="3" width="20" height="14" rx="2"/>
-                <path d="M8 21h8M12 17v4"/>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <path d="M8 21h8M12 17v4" />
               </svg>
             </span>
             <h3>Live interactive classes</h3>
@@ -542,9 +643,10 @@
 
           <div class="why-item">
             <span class="why-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="12" cy="12" r="9"/>
-                <path d="M12 8v4l3 3"/>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 8v4l3 3" />
               </svg>
             </span>
             <h3>AI learning assistant</h3>
@@ -553,8 +655,9 @@
 
           <div class="why-item">
             <span class="why-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z" />
               </svg>
             </span>
             <h3>Industry certifications</h3>
@@ -563,10 +666,11 @@
 
           <div class="why-item">
             <span class="why-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                <circle cx="9" cy="7" r="4"/>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
               </svg>
             </span>
             <h3>Placement support</h3>
@@ -575,9 +679,10 @@
 
           <div class="why-item">
             <span class="why-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M4 4h16v16H4z" rx="2"/>
-                <path d="M9 9h6M9 13h4"/>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 4h16v16H4z" rx="2" />
+                <path d="M9 9h6M9 13h4" />
               </svg>
             </span>
             <h3>Recorded sessions</h3>
@@ -586,10 +691,11 @@
 
           <div class="why-item">
             <span class="why-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                <circle cx="9" cy="7" r="4"/>
-                <path d="M22 11l-4 4-2-2"/>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M22 11l-4 4-2-2" />
               </svg>
             </span>
             <h3>Community access</h3>
@@ -673,6 +779,7 @@
       </div>
     </section>
 
+    <!-- PLATFORM TOOLS SECTION — commented out temporarily
     <section class="section tools-section" id="tools">
       <div class="container tools-layout">
         <div class="tools-header">
@@ -729,6 +836,7 @@
         </div>
       </div>
     </section>
+    -->
 
     <section class="cta-banner">
       <div class="cta-blob cta-blob-1" aria-hidden="true"></div>
@@ -776,7 +884,9 @@
             <h3 class="cta-card-heading">Get your free session</h3>
             <!-- <p class="cta-card-sub">Available Mon–Sat, 9 AM – 7 PM IST</p> -->
             <div class="cta-buttons">
-              <a class="btn btn-cta-primary" href="https://wa.me/918336889553?text=Hi%2C%20I%20want%20to%20know%20more%20about%20LMS%20Bharat%20courses" target="_blank" rel="noopener noreferrer">
+              <a class="btn btn-cta-primary"
+                href="https://wa.me/918336889553?text=Hi%2C%20I%20want%20to%20know%20more%20about%20LMS%20Bharat%20courses"
+                target="_blank" rel="noopener noreferrer">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                   stroke-linejoin="round" aria-hidden="true" width="18" height="18">
                   <path
@@ -932,7 +1042,9 @@
       <span>Pick the right course — no pressure, no spam.</span>
     </div>
     <div class="toast-actions">
-      <a class="btn toast-cta" href="https://wa.me/918336889553?text=Hi%2C%20I%20want%20to%20know%20more%20about%20LMS%20Bharat%20courses" target="_blank" rel="noopener noreferrer">
+      <a class="btn toast-cta"
+        href="https://wa.me/918336889553?text=Hi%2C%20I%20want%20to%20know%20more%20about%20LMS%20Bharat%20courses"
+        target="_blank" rel="noopener noreferrer">
         Talk Now
         <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" width="15" height="15">
           <path
@@ -950,8 +1062,9 @@
   </div>
 
   <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
-      <polyline points="18 15 12 9 6 15"/>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+      stroke-linejoin="round" width="20" height="20">
+      <polyline points="18 15 12 9 6 15" />
     </svg>
   </button>
 
