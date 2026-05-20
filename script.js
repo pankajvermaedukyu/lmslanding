@@ -98,3 +98,88 @@ if (scrollTopBtn) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
+
+// ── Navbar: scroll-spy active tab ────────────────────────
+(function () {
+  const navTabs = document.querySelectorAll('.nav-tab[data-section]');
+  if (!navTabs.length) return;
+
+  const sectionIds = Array.from(navTabs).map(t => t.dataset.section);
+  // Exclude 'contact' from IntersectionObserver — handled separately via scroll position
+  const observableSections = sectionIds
+    .filter(id => id !== 'contact')
+    .map(id => document.getElementById(id))
+    .filter(Boolean);
+
+  function setActive(id) {
+    navTabs.forEach(t => t.classList.toggle('active', t.dataset.section === id));
+  }
+
+  setActive('home');
+
+  // Mark Contact active when scrolled within 120px of the bottom
+  function checkContactActive() {
+    const scrollBottom = window.scrollY + window.innerHeight;
+    const pageHeight = document.documentElement.scrollHeight;
+    if (pageHeight - scrollBottom < 120) {
+      setActive('contact');
+      return true;
+    }
+    return false;
+  }
+
+  if (!('IntersectionObserver' in window)) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Don't override if contact is already active via scroll-bottom check
+        if (!checkContactActive()) {
+          setActive(entry.target.id);
+        }
+      }
+    });
+  }, {
+    rootMargin: '-40% 0px -55% 0px',
+    threshold: 0
+  });
+
+  observableSections.forEach(s => observer.observe(s));
+
+  // Also run the bottom check on scroll
+  window.addEventListener('scroll', checkContactActive, { passive: true });
+})();
+
+(function () {
+  const tabs = document.querySelectorAll('.features-tab');
+  const panels = document.querySelectorAll('.features-panel');
+  if (!tabs.length || !panels.length) return;
+
+  function activateTab(index) {
+    tabs.forEach((t, i) => {
+      const isActive = i === index;
+      t.classList.toggle('active', isActive);
+      t.setAttribute('aria-selected', isActive);
+    });
+    panels.forEach((p, i) => {
+      if (i === index) {
+        p.classList.remove('hidden');
+        // re-trigger animation
+        p.style.animation = 'none';
+        p.offsetHeight; // reflow
+        p.style.animation = '';
+      } else {
+        p.classList.add('hidden');
+      }
+    });
+  }
+
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => activateTab(i));
+    tab.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activateTab(i); }
+      if (e.key === 'ArrowDown') { e.preventDefault(); activateTab(Math.min(i + 1, tabs.length - 1)); tabs[Math.min(i + 1, tabs.length - 1)].focus(); }
+      if (e.key === 'ArrowUp')   { e.preventDefault(); activateTab(Math.max(i - 1, 0)); tabs[Math.max(i - 1, 0)].focus(); }
+    });
+  });
+})();

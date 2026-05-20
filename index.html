@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" rel="stylesheet" />
 </head>
 
 <body>
@@ -27,16 +28,17 @@
       </button>
       <a class="brand" href="#">
         <img src="./LMS Landscape.png" alt="LMS Bharat" class="site-logo site-logo-lms" />
-        <span class="brand-divider" aria-hidden="true"></span>
-        <img src="./ed-logo.png" alt="edukyu" class="site-logo site-logo-edukyu" />
       </a>
-      <!-- <nav class="site-nav" aria-label="Primary navigation">
-        <a href="#home">Home</a>
-        <a href="#universities">Universities</a>
-        <a href="#courses">Courses</a>
-        <a href="#tools">Tools</a>
-        <a href="#contact">Contact</a>
-      </nav> -->
+      <nav class="site-nav" aria-label="Primary navigation">
+        <div class="nav-capsule">
+          <a href="#home"         class="nav-tab" data-section="home">Home</a>
+          <a href="#universities" class="nav-tab" data-section="universities">Universities</a>
+          <a href="#courses"      class="nav-tab" data-section="courses">Courses</a>
+          <a href="#features"     class="nav-tab" data-section="features">Features</a>
+          <a href="#tools"        class="nav-tab" data-section="tools">Tools</a>
+          <a href="#contact"      class="nav-tab" data-section="contact">Contact</a>
+        </div>
+      </nav>
       <a class="btn btn-login" href="https://login.lmsbharat.com/">
         <span>Login</span>
         <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -47,13 +49,14 @@
     </div>
   </header>
 
-  <!-- <div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu" id="mobileMenu">
     <a href="#home">Home</a>
     <a href="#universities">Universities</a>
     <a href="#courses">Courses</a>
+    <a href="#features">Features</a>
     <a href="#tools">Tools</a>
     <a href="#contact">Contact</a>
-  </div> -->
+  </div>
 
   <main>
     <section class="hero" id="home">
@@ -133,12 +136,89 @@
       </div><!-- /.hero-body -->
     </section>
 
+    <!-- Core Platform Properties -->
+    <section class="section platform-props-section">
+      <div class="container">
+        <div class="platform-props-header">
+          <span class="platform-props-badge">LMS properties</span>
+          <h2 class="platform-props-heading">Core platform properties</h2>
+          <p class="platform-props-sub">What defines the LMS at its foundation</p>
+        </div>
+
+        <div class="platform-props-grid">
+
+          <div class="prop-card">
+            <span class="prop-icon"><span class="material-symbols-rounded">cloud</span></span>
+            <h3>Cloud-based infrastructure</h3>
+            <p>Fully hosted on secure cloud servers. No installation required — access from any browser, anywhere in the world.</p>
+            <div class="prop-tags">
+              <span>SaaS</span>
+              <span>Always updated</span>
+            </div>
+          </div>
+
+          <div class="prop-card">
+            <span class="prop-icon"><span class="material-symbols-rounded">smartphone</span></span>
+            <h3>Mobile-first design</h3>
+            <p>Responsive UI built for smartphones and tablets first. Offline mode lets learners download and study without internet.</p>
+            <div class="prop-tags">
+              <span>iOS</span>
+              <span>Android</span>
+              <span>Web</span>
+            </div>
+          </div>
+
+          <div class="prop-card">
+            <span class="prop-icon"><span class="material-symbols-rounded">psychology</span></span>
+            <h3>AI-powered engine</h3>
+            <p>Adaptive learning paths, smart recommendations and automated assessments powered by machine learning.</p>
+            <div class="prop-tags">
+              <span>Personalized</span>
+              <span>Adaptive</span>
+            </div>
+          </div>
+
+          <div class="prop-card">
+            <span class="prop-icon"><span class="material-symbols-rounded">security</span></span>
+            <h3>Enterprise-grade security</h3>
+            <p>SSL encryption, role-based access control, SSO support and GDPR compliance built into every layer.</p>
+            <div class="prop-tags">
+              <span>SOC 2</span>
+              <span>GDPR</span>
+              <span>SSO</span>
+            </div>
+          </div>
+
+          <div class="prop-card">
+            <span class="prop-icon"><span class="material-symbols-rounded">api</span></span>
+            <h3>API &amp; integrations</h3>
+            <p>Open REST APIs and native connectors to Zoom, Slack, Google Workspace, Salesforce and 50+ tools.</p>
+            <div class="prop-tags">
+              <span>REST API</span>
+              <span>Webhooks</span>
+            </div>
+          </div>
+
+          <div class="prop-card">
+            <span class="prop-icon"><span class="material-symbols-rounded">palette</span></span>
+            <h3>White-label ready</h3>
+            <p>Fully customizable branding — your logo, colors, domain and email communications. Looks like your product.</p>
+            <div class="prop-tags">
+              <span>Custom domain</span>
+              <span>Branded</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <section class="section university-section" id="universities">
       <div class="container">
         <div class="section-heading">
-          <span class="eyebrow">Explore our Partner Universities</span>
-          <h2>Online programs from India's top institutions</h2>
-          <p>Earn a degree from verified universities with flexible schedules and affordable fees.</p>
+          <span class="platform-props-badge">Explore our Partner Universities</span>
+          <h2 class="platform-props-heading">Online programs from India's top institutions</h2>
+          <p class="platform-props-sub">Earn a degree from verified universities with flexible schedules and affordable fees.</p>
         </div>
         <div class="university-carousel" aria-label="Partner universities">
           <div class="university-track">
@@ -171,137 +251,351 @@
       </div>
     </section>
 
-    <section class="section courses-section" id="courses">
-      <div class="container course-layout">
-        <div class="section-heading">
-          <span class="eyebrow">Featured Courses</span>
-          <h2>Top-rated learning programs designed for real career growth</h2>
-          <p>Choose from high-impact courses designed for working professionals, focused on employability and flexible
-            delivery.</p>
+    <!-- LMS Use Cases -->
+    <section class="section use-cases-section">
+      <div class="container">
+
+        <div class="platform-props-header">
+          <span class="platform-props-badge">LMS use cases</span>
+          <h2 class="platform-props-heading">Who uses it and how</h2>
+          <p class="platform-props-sub">Built for every learning context — from classrooms to boardrooms</p>
         </div>
-        <div class="course-grid">
-          <article class="course-card">
-            <div class="course-card-thumb">
-              <img
-                src="https://storage.googleapis.com/edukyu-1.firebasestorage.app/college-images/Images/courseBanner/mba.avif"
-                alt="MBA course banner" />
+
+        <div class="use-cases-grid">
+
+          <!-- Card 1: Higher education -->
+          <div class="use-case-card">
+            <div class="use-case-header use-case-header--teal">
+              <span class="use-case-icon">
+                <span class="material-symbols-rounded">school</span>
+              </span>
+              <div>
+                <h3>Higher education</h3>
+                <span>Universities &amp; colleges</span>
+              </div>
             </div>
-            <div class="course-card-header">
-              <span class="course-label">MBA</span>
-              <span class="course-rating">4.8 ★</span>
+            <ul class="use-case-list">
+              <li><span class="material-symbols-rounded">radio_button_checked</span>Deliver semester-long online degree programs</li>
+              <li><span class="material-symbols-rounded">radio_button_checked</span>Manage student enrolment, attendance &amp; grades</li>
+              <li><span class="material-symbols-rounded">radio_button_checked</span>Host hybrid classes — live + recorded</li>
+              <li><span class="material-symbols-rounded">radio_button_checked</span>Issue verified digital degrees &amp; transcripts</li>
+            </ul>
+          </div>
+
+          <!-- Card 2: Corporate training -->
+          <div class="use-case-card">
+            <div class="use-case-header use-case-header--dark">
+              <span class="use-case-icon">
+                <span class="material-symbols-rounded">corporate_fare</span>
+              </span>
+              <div>
+                <h3>Corporate training</h3>
+                <span>Enterprises &amp; teams</span>
+              </div>
             </div>
-            <h3>Online MBA Program</h3>
-            <p>Complete management program with live sessions, industry projects, and placement mentoring.</p>
-            <div class="course-list">
-              <span>2 Years</span>
-              <span>20 hrs/week</span>
-              <span>Live & self-paced</span>
+            <ul class="use-case-list">
+              <li><span class="material-symbols-rounded">radio_button_checked</span>Onboard new employees with structured paths</li>
+              <li><span class="material-symbols-rounded">radio_button_checked</span>Mandatory compliance &amp; safety training</li>
+              <li><span class="material-symbols-rounded">radio_button_checked</span>Upskill teams with role-based learning tracks</li>
+              <li><span class="material-symbols-rounded">radio_button_checked</span>Track L&amp;D ROI with completion analytics</li>
+            </ul>
+          </div>
+
+          <!-- Card 3: EdTech & coaching -->
+          <div class="use-case-card">
+            <div class="use-case-header use-case-header--mid">
+              <span class="use-case-icon">
+                <span class="material-symbols-rounded">cast_for_education</span>
+              </span>
+              <div>
+                <h3>EdTech &amp; coaching</h3>
+                <span>Coaches &amp; course creators</span>
+              </div>
             </div>
-            <div class="course-footer">
-              <span class="course-price">₹ 88,500</span>
-              <a class="btn btn-secondary btn-small"
-                href="https://edukyu.com/online-mba-programs/top-distance-mba-colleges" target="_blank">View Course</a>
-            </div>
-          </article>
-          <article class="course-card">
-            <div class="course-card-thumb">
-              <img
-                src="https://storage.googleapis.com/edukyu-1.firebasestorage.app/college-images/Images/courseBanner/mca.avif"
-                alt="MCA course banner" />
-            </div>
-            <div class="course-card-header">
-              <span class="course-label">MCA</span>
-              <span class="course-rating">4.7 ★</span>
-            </div>
-            <h3>Online MCA Program</h3>
-            <p>Tech-focused curriculum, live coding labs, and career support for software roles.</p>
-            <div class="course-list">
-              <span>2 Years</span>
-              <span>18 hrs/week</span>
-              <span>Capstone project</span>
-            </div>
-            <div class="course-footer">
-              <span class="course-price">₹ 87,500</span>
-              <a class="btn btn-secondary btn-small" href="https://edukyu.com/online-mca-program" target="_blank">View
-                Course</a>
-            </div>
-          </article>
-          <article class="course-card">
-            <div class="course-card-thumb">
-              <img
-                src="https://storage.googleapis.com/edukyu-1.firebasestorage.app/college-images/Images/courseBanner/mcom.avif"
-                alt="B.Com course banner" />
-            </div>
-            <div class="course-card-header">
-              <span class="course-label">B.Com</span>
-              <span class="course-rating">4.6 ★</span>
-            </div>
-            <h3>Online B.Com Program</h3>
-            <p>Practical commerce education with accounting, finance, and analytics modules.</p>
-            <div class="course-list">
-              <span>3 Years</span>
-              <span>15 hrs/week</span>
-              <span>Interactive labs</span>
-            </div>
-            <div class="course-footer">
-              <span class="course-price">₹ 45,000</span>
-              <a class="btn btn-secondary btn-small" href="https://edukyu.com/online-bcom-program" target="_blank">View
-                Course</a>
-            </div>
-          </article>
+            <ul class="use-case-list">
+              <li><span class="material-symbols-rounded">radio_button_checked</span>Sell and monetize online courses at scale</li>
+              <li><span class="material-symbols-rounded">radio_button_checked</span>Run live cohort-based bootcamps</li>
+              <li><span class="material-symbols-rounded">radio_button_checked</span>Build branded academies with white-label</li>
+              <li><span class="material-symbols-rounded">radio_button_checked</span>Manage student community &amp; discussions</li>
+            </ul>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <section class="section features-section">
-      <div class="container features-grid">
-        <div class="feature-copy">
-          <span class="eyebrow">LMS Features</span>
-          <h2>Build, deliver and manage learning in one platform.</h2>
-          <p>LMS Bharat gives students and institutions a seamless learning experience with course tracking, live
-            classrooms, assessment tools, and student analytics.</p>
+    <section class="section courses-section" id="courses">
+      <div class="container">
+        <div class="courses-section-header">
+          <div>
+            <span class="platform-props-badge">Trending Programs</span>
+            <h2 class="platform-props-heading">Top-rated learning programs</h2>
+          </div>
         </div>
-        <div class="feature-cards">
-          <article class="feature-card">
-            <div class="feature-card-top">
-              <span class="feature-card-icon">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <rect x="4" y="10" width="4" height="10" rx="1" />
-                  <rect x="10" y="6" width="4" height="14" rx="1" />
-                  <rect x="16" y="2" width="4" height="18" rx="1" />
-                </svg>
-              </span>
+
+        <div class="course-boxes">
+
+          <a href="https://edukyu.com/online-mba-programs/top-distance-mba-colleges" target="_blank" class="course-box">
+            <span class="course-box-icon"><span class="material-symbols-rounded">business_center</span></span>
+            <span class="course-box-name">MBA</span>
+          </a>
+
+          <a href="https://edukyu.com/online-mca-program" target="_blank" class="course-box">
+            <span class="course-box-icon"><span class="material-symbols-rounded">code</span></span>
+            <span class="course-box-name">MCA</span>
+          </a>
+
+          <a href="https://edukyu.com/online-bcom-program" target="_blank" class="course-box">
+            <span class="course-box-icon"><span class="material-symbols-rounded">account_balance</span></span>
+            <span class="course-box-name">B.Com</span>
+          </a>
+
+          <a href="https://edukyu.com" target="_blank" class="course-box">
+            <span class="course-box-icon"><span class="material-symbols-rounded">trending_up</span></span>
+            <span class="course-box-name">BBA</span>
+          </a>
+
+          <a href="https://edukyu.com" target="_blank" class="course-box">
+            <span class="course-box-icon"><span class="material-symbols-rounded">computer</span></span>
+            <span class="course-box-name">B.Tech</span>
+          </a>
+
+          <a href="https://edukyu.com" target="_blank" class="course-box">
+            <span class="course-box-icon"><span class="material-symbols-rounded">science</span></span>
+            <span class="course-box-name">M.Sc</span>
+          </a>
+
+          <a href="https://edukyu.com" target="_blank" class="course-box">
+            <span class="course-box-icon"><span class="material-symbols-rounded">gavel</span></span>
+            <span class="course-box-name">LLB</span>
+          </a>
+
+          <a href="https://edukyu.com" target="_blank" class="course-box">
+            <span class="course-box-icon"><span class="material-symbols-rounded">psychology</span></span>
+            <span class="course-box-name">Data Science</span>
+          </a>
+
+          <a href="https://edukyu.com" target="_blank" class="course-box">
+            <span class="course-box-icon"><span class="material-symbols-rounded">campaign</span></span>
+            <span class="course-box-name">Digital Marketing</span>
+          </a>
+
+          <a href="https://edukyu.com" target="_blank" class="course-box">
+            <span class="course-box-icon"><span class="material-symbols-rounded">health_and_safety</span></span>
+            <span class="course-box-name">Healthcare Mgmt</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section features-section" id="features">
+      <div class="container">
+
+        <div class="features-layout">
+
+          <!-- Left: heading + tab list -->
+          <div class="features-left">
+            <span class="platform-props-badge">LMS Features</span>
+            <h2 class="platform-props-heading">Everything you need to run a world-class learning platform.</h2>
+            <p class="platform-props-sub">From live classrooms to placement support — built for institutions and learners alike.</p>
+
+            <ul class="features-tab-list" role="tablist" aria-label="LMS Features">
+              <li class="features-tab active" role="tab" aria-selected="true" data-feature="0" tabindex="0">
+                <span class="features-tab-icon"><span class="material-symbols-rounded">dashboard</span></span>
+                <span class="features-tab-text">
+                  <strong>Course dashboard</strong>
+                  <span>Track progress at a glance</span>
+                </span>
+                <span class="features-tab-chevron material-symbols-rounded">chevron_right</span>
+              </li>
+              <li class="features-tab" role="tab" aria-selected="false" data-feature="1" tabindex="0">
+                <span class="features-tab-icon"><span class="material-symbols-rounded">live_tv</span></span>
+                <span class="features-tab-text">
+                  <strong>Live classes</strong>
+                  <span>Real-time classroom sessions</span>
+                </span>
+                <span class="features-tab-chevron material-symbols-rounded">chevron_right</span>
+              </li>
+              <li class="features-tab" role="tab" aria-selected="false" data-feature="2" tabindex="0">
+                <span class="features-tab-icon"><span class="material-symbols-rounded">workspace_premium</span></span>
+                <span class="features-tab-text">
+                  <strong>Assessments &amp; certification</strong>
+                  <span>Quizzes, grades &amp; certificates</span>
+                </span>
+                <span class="features-tab-chevron material-symbols-rounded">chevron_right</span>
+              </li>
+              <li class="features-tab" role="tab" aria-selected="false" data-feature="3" tabindex="0">
+                <span class="features-tab-icon"><span class="material-symbols-rounded">insights</span></span>
+                <span class="features-tab-text">
+                  <strong>Progress analytics</strong>
+                  <span>Real-time learner insights</span>
+                </span>
+                <span class="features-tab-chevron material-symbols-rounded">chevron_right</span>
+              </li>
+              <li class="features-tab" role="tab" aria-selected="false" data-feature="4" tabindex="0">
+                <span class="features-tab-icon"><span class="material-symbols-rounded">work</span></span>
+                <span class="features-tab-text">
+                  <strong>Placement support</strong>
+                  <span>Jobs, referrals &amp; mock interviews</span>
+                </span>
+                <span class="features-tab-chevron material-symbols-rounded">chevron_right</span>
+              </li>
+              <li class="features-tab" role="tab" aria-selected="false" data-feature="5" tabindex="0">
+                <span class="features-tab-icon"><span class="material-symbols-rounded">phone_android</span></span>
+                <span class="features-tab-text">
+                  <strong>Mobile learning</strong>
+                  <span>iOS, Android &amp; offline mode</span>
+                </span>
+                <span class="features-tab-chevron material-symbols-rounded">chevron_right</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Right: active feature detail panel -->
+          <div class="features-right" aria-live="polite">
+            <div class="features-panel" data-panel="0">
+              <div class="features-panel-icon"><span class="material-symbols-rounded">dashboard</span></div>
               <h3>Course dashboard</h3>
+              <p>Monitor every learner's progress, pending assignments, and completion rates from one polished, centralised dashboard. Instructors get a live view of engagement and can act instantly.</p>
+              <ul class="features-panel-list">
+                <li><span class="material-symbols-rounded">check_circle</span>Real-time completion tracking</li>
+                <li><span class="material-symbols-rounded">check_circle</span>Assignment &amp; deadline management</li>
+                <li><span class="material-symbols-rounded">check_circle</span>Instructor &amp; admin role views</li>
+              </ul>
             </div>
-            <p>Monitor learner progress, assignments, and completion status from a polished centralized dashboard.</p>
-          </article>
-          <article class="feature-card">
-            <div class="feature-card-top">
-              <span class="feature-card-icon">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <rect x="3" y="5" width="18" height="12" rx="2" />
-                  <polygon points="10,8 16,12 10,16" />
-                  <path d="M12 17.5v3" stroke-width="2" stroke-linecap="round" />
-                </svg>
-              </span>
+            <div class="features-panel hidden" data-panel="1">
+              <div class="features-panel-icon"><span class="material-symbols-rounded">live_tv</span></div>
               <h3>Live classes</h3>
+              <p>Deliver interactive live sessions with built-in scheduling, attendance tracking, hand-raise tools, and breakout rooms. Recordings are auto-saved for later access.</p>
+              <ul class="features-panel-list">
+                <li><span class="material-symbols-rounded">check_circle</span>HD video with low latency</li>
+                <li><span class="material-symbols-rounded">check_circle</span>Attendance &amp; engagement tracking</li>
+                <li><span class="material-symbols-rounded">check_circle</span>Auto-recorded &amp; indexed sessions</li>
+              </ul>
             </div>
-            <p>Deliver live sessions with scheduling, attendance tracking, and seamless classroom engagement tools.</p>
-          </article>
-          <article class="feature-card">
-            <div class="feature-card-top">
-              <span class="feature-card-icon">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M8 3h8l3 3v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z" />
-                  <path d="M8 3v4h8" />
-                  <path d="M9 12h6" stroke-width="2" stroke-linecap="round" />
-                  <path d="M9 16h4" stroke-width="2" stroke-linecap="round" />
-                </svg>
-              </span>
-              <h3>Assessments & certification</h3>
+            <div class="features-panel hidden" data-panel="2">
+              <div class="features-panel-icon"><span class="material-symbols-rounded">workspace_premium</span></div>
+              <h3>Assessments &amp; certification</h3>
+              <p>Build quizzes, auto-grade assignments, and issue tamper-proof digital certificates. Supports MCQ, subjective, and coding assessments with plagiarism detection.</p>
+              <ul class="features-panel-list">
+                <li><span class="material-symbols-rounded">check_circle</span>Auto-graded &amp; manual assessments</li>
+                <li><span class="material-symbols-rounded">check_circle</span>Verified digital certificates</li>
+                <li><span class="material-symbols-rounded">check_circle</span>Plagiarism &amp; proctoring tools</li>
+              </ul>
             </div>
-            <p>Launch quizzes, grade assignments, and issue verified certificates for measurable learning outcomes.</p>
-          </article>
+            <div class="features-panel hidden" data-panel="3">
+              <div class="features-panel-icon"><span class="material-symbols-rounded">insights</span></div>
+              <h3>Progress analytics</h3>
+              <p>Deep learner insights with real-time reports, engagement heatmaps, drop-off analysis, and performance trends — all exportable for institutional reporting.</p>
+              <ul class="features-panel-list">
+                <li><span class="material-symbols-rounded">check_circle</span>Engagement &amp; drop-off heatmaps</li>
+                <li><span class="material-symbols-rounded">check_circle</span>Cohort &amp; individual reports</li>
+                <li><span class="material-symbols-rounded">check_circle</span>Exportable CSV &amp; PDF reports</li>
+              </ul>
+            </div>
+            <div class="features-panel hidden" data-panel="4">
+              <div class="features-panel-icon"><span class="material-symbols-rounded">work</span></div>
+              <h3>Placement support</h3>
+              <p>Resume builder, mock interview scheduler, job board access, and direct referrals to 500+ hiring partners. Learners get notified of matching opportunities automatically.</p>
+              <ul class="features-panel-list">
+                <li><span class="material-symbols-rounded">check_circle</span>AI-assisted resume builder</li>
+                <li><span class="material-symbols-rounded">check_circle</span>500+ hiring partner network</li>
+                <li><span class="material-symbols-rounded">check_circle</span>Mock interview &amp; feedback loop</li>
+              </ul>
+            </div>
+            <div class="features-panel hidden" data-panel="5">
+              <div class="features-panel-icon"><span class="material-symbols-rounded">phone_android</span></div>
+              <h3>Mobile learning</h3>
+              <p>Full-featured iOS and Android apps with offline download mode, push notifications, and seamless sync. Learners never miss a session, even without internet.</p>
+              <ul class="features-panel-list">
+                <li><span class="material-symbols-rounded">check_circle</span>iOS &amp; Android native apps</li>
+                <li><span class="material-symbols-rounded">check_circle</span>Offline content download</li>
+                <li><span class="material-symbols-rounded">check_circle</span>Push notifications &amp; reminders</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Learners Choose LMS Bharat -->
+    <section class="why-section">
+      <div class="container">
+        <div class="why-section-header">
+          <span class="platform-props-badge why-badge">Why choose us</span>
+          <h2 class="why-heading">Why learners choose LMS Bharat</h2>
+        </div>
+        <div class="why-grid">
+
+          <div class="why-item">
+            <span class="why-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="3" width="20" height="14" rx="2"/>
+                <path d="M8 21h8M12 17v4"/>
+              </svg>
+            </span>
+            <h3>Live interactive classes</h3>
+            <p>Learn from top industry mentors</p>
+          </div>
+
+          <div class="why-item">
+            <span class="why-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="9"/>
+                <path d="M12 8v4l3 3"/>
+              </svg>
+            </span>
+            <h3>AI learning assistant</h3>
+            <p>Personalised learning paths</p>
+          </div>
+
+          <div class="why-item">
+            <span class="why-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/>
+              </svg>
+            </span>
+            <h3>Industry certifications</h3>
+            <p>Earn recognised credentials</p>
+          </div>
+
+          <div class="why-item">
+            <span class="why-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </span>
+            <h3>Placement support</h3>
+            <p>Resume help &amp; job referrals</p>
+          </div>
+
+          <div class="why-item">
+            <span class="why-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 4h16v16H4z" rx="2"/>
+                <path d="M9 9h6M9 13h4"/>
+              </svg>
+            </span>
+            <h3>Recorded sessions</h3>
+            <p>Access lectures any time, anywhere</p>
+          </div>
+
+          <div class="why-item">
+            <span class="why-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M22 11l-4 4-2-2"/>
+              </svg>
+            </span>
+            <h3>Community access</h3>
+            <p>Collaborate &amp; grow together</p>
+          </div>
+
         </div>
       </div>
     </section>
@@ -382,9 +676,9 @@
     <section class="section tools-section" id="tools">
       <div class="container tools-layout">
         <div class="tools-header">
-          <span class="eyebrow">Platform tools</span>
-          <h2>Tools that support students and counsellors</h2>
-          <p>Use the LMS Bharat toolkit to simplify academic planning, fee calculation, and course comparisons.</p>
+          <span class="platform-props-badge">Platform tools</span>
+          <h2 class="platform-props-heading">Tools that support students and counsellors</h2>
+          <p class="platform-props-sub">Use the LMS Bharat toolkit to simplify academic planning, fee calculation, and course comparisons.</p>
         </div>
         <div class="tool-grid">
           <a href="https://edukyu.com/sgpa-to-percentage" class="tool-card" target="_blank" rel="noopener noreferrer">
@@ -515,7 +809,7 @@
         <!-- Col 1: Brand -->
         <div class="footer-col footer-col-brand">
           <a class="footer-logo-link" href="#">
-            <img src="./lms-logo.png" alt="LMS Bharat" class="footer-logo" />
+            <img src="./LMS Landscape.png" alt="LMS Bharat" class="footer-logo" />
           </a>
           <p class="footer-tagline">Empowering learners across India with flexible, career-focused online education.</p>
           <div class="footer-social">
@@ -610,8 +904,7 @@
 
       <!-- Bottom bar -->
       <div class="footer-bottom">
-        <p>© 2026 LMS Bharat · A product of <a href="https://edukyu.com" target="_blank"
-            rel="noopener noreferrer">edukyu.com</a></p>
+        <p>© 2026 LMS Bharat</p>
         <div class="footer-legal">
           <a href="#">Privacy Policy</a>
           <span class="footer-legal-dot" aria-hidden="true">·</span>
