@@ -104,11 +104,8 @@ if (scrollTopBtn) {
   const navTabs = document.querySelectorAll('.nav-tab[data-section]');
   if (!navTabs.length) return;
 
-  const sectionIds = Array.from(navTabs).map(t => t.dataset.section);
-  // Exclude 'contact' from IntersectionObserver — handled separately via scroll position
-  const observableSections = sectionIds
-    .filter(id => id !== 'contact')
-    .map(id => document.getElementById(id))
+  const observableSections = Array.from(navTabs)
+    .map(t => document.getElementById(t.dataset.section))
     .filter(Boolean);
 
   function setActive(id) {
@@ -117,26 +114,12 @@ if (scrollTopBtn) {
 
   setActive('home');
 
-  // Mark Contact active when scrolled within 120px of the bottom
-  function checkContactActive() {
-    const scrollBottom = window.scrollY + window.innerHeight;
-    const pageHeight = document.documentElement.scrollHeight;
-    if (pageHeight - scrollBottom < 120) {
-      setActive('contact');
-      return true;
-    }
-    return false;
-  }
-
   if (!('IntersectionObserver' in window)) return;
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        // Don't override if contact is already active via scroll-bottom check
-        if (!checkContactActive()) {
-          setActive(entry.target.id);
-        }
+        setActive(entry.target.id);
       }
     });
   }, {
@@ -145,9 +128,6 @@ if (scrollTopBtn) {
   });
 
   observableSections.forEach(s => observer.observe(s));
-
-  // Also run the bottom check on scroll
-  window.addEventListener('scroll', checkContactActive, { passive: true });
 })();
 
 (function () {

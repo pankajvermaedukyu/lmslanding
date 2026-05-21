@@ -1446,6 +1446,7 @@ h1 {
   margin: 80px 0;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
+  scroll-margin-top: calc(var(--header-h, 72px) + 16px);
 }
 
 .cta-blob {
