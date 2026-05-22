@@ -15,11 +15,7 @@ if (siteHeader) {
     const observer = new IntersectionObserver(
       ([entry]) => {
         siteHeader.classList.toggle('scrolled', !entry.isIntersecting);
-        // keep mobile menu background in sync
-        if (mobileMenu && mobileMenu.classList.contains('open')) {
-          mobileMenu.style.top = siteHeader.offsetHeight + 'px';
-        }
-      },
+  },
       { threshold: 0, rootMargin: '0px' }
     );
     observer.observe(sentinel);
@@ -45,10 +41,10 @@ if (siteHeader) {
 if (menuToggle && mobileMenu) {
   menuToggle.addEventListener('click', () => {
     const isOpen = mobileMenu.classList.toggle('open');
+    menuToggle.classList.toggle('open', isOpen);
     menuToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
     menuToggle.setAttribute('aria-expanded', isOpen);
-    // position mobile menu flush below the header
-    mobileMenu.style.top = siteHeader.offsetHeight + 'px';
+    mobileMenu.style.top = '';
     document.body.style.overflow = isOpen ? 'hidden' : '';
   });
 
@@ -57,8 +53,10 @@ if (menuToggle && mobileMenu) {
   mobileMenuLinks.forEach(link => {
     link.addEventListener('click', () => {
       mobileMenu.classList.remove('open');
+      menuToggle.classList.remove('open');
       menuToggle.setAttribute('aria-label', 'Open menu');
       menuToggle.setAttribute('aria-expanded', false);
+      mobileMenu.style.top = '';
       document.body.style.overflow = '';
     });
   });
@@ -67,8 +65,10 @@ if (menuToggle && mobileMenu) {
   document.addEventListener('click', (e) => {
     if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target) && mobileMenu.classList.contains('open')) {
       mobileMenu.classList.remove('open');
+      menuToggle.classList.remove('open');
       menuToggle.setAttribute('aria-label', 'Open menu');
       menuToggle.setAttribute('aria-expanded', false);
+      mobileMenu.style.top = '';
       document.body.style.overflow = '';
     }
   });
