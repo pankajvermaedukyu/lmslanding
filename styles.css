@@ -534,7 +534,7 @@ h1 {
   margin-top: 2px;
 }
 
-@media (max-width: 800px) {
+@media (min-width: 641px) and (max-width: 800px) {
   .hero-stats {
     display: flex;
     flex-wrap: nowrap;
@@ -1115,7 +1115,7 @@ h1 {
   display: grid;
   grid-template-columns: 1fr 1.1fr;
   gap: 48px;
-  align-items: start;
+  align-items: center;
 }
 
 /* Left column */
@@ -1213,8 +1213,10 @@ h1 {
 
 /* Right column — detail panel */
 .features-right {
-  position: sticky;
-  top: 100px;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .features-panel {
@@ -1720,6 +1722,7 @@ h1 {
   font-size: 0.78rem;
   font-weight: 700;
   cursor: pointer;
+  text-decoration: none;
   transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
   white-space: nowrap;
 }
@@ -1730,9 +1733,18 @@ h1 {
   color: var(--surface);
 }
 
-.btn-white-sm:hover {
-  background: var(--accent);
-  color: var(--text);
+/* Override footer's inherited white color */
+a.btn-white-sm,
+button.btn-white-sm {
+  color: #024b53 !important;
+  text-decoration: none;
+}
+
+.btn-white-sm:hover,
+a.btn-white-sm:hover,
+button.btn-white-sm:hover {
+  background: #FFC70F !important;
+  color: #024b53 !important;
 }
 
 .btn-ghost-sm {
@@ -1741,9 +1753,17 @@ h1 {
   color: #ffffff;
 }
 
-.btn-ghost-sm:hover {
-  background: rgba(255, 255, 255, 0.1);
+a.btn-ghost-sm,
+button.btn-ghost-sm {
+  color: #ffffff;
+}
+
+.btn-ghost-sm:hover,
+a.btn-ghost-sm:hover,
+button.btn-ghost-sm:hover {
+  background: rgba(255, 255, 255, 0.12);
   border-color: #ffffff;
+  color: #ffffff;
 }
 
 .btn-white-sm:active,
@@ -1782,7 +1802,7 @@ h1 {
 }
 
 .footer-logo {
-  height: 68px;
+  height: 80px;
   width: auto;
 }
 
@@ -2513,9 +2533,15 @@ h1 {
     gap: 28px;
   }
 
-  /* Center all hero text on mobile */
+  /* Left-align all hero copy on mobile */
   .hero-copy {
     text-align: left;
+  }
+
+  /* Badge — force block so it sits flush left */
+  .hero-copy .platform-props-badge {
+    display: inline-flex;
+    margin-bottom: 12px;
   }
 
   .eyebrow {
@@ -2525,64 +2551,74 @@ h1 {
   }
 
   .hero-copy h1 {
-    font-size: clamp(1.6rem, 6vw, 2rem);
+    font-size: clamp(1.55rem, 5.5vw, 2rem);
     line-height: 1.25;
+    max-width: 100%;
   }
 
   .hero-copy p {
     font-size: 0.92rem;
-    margin-top: 12px;
+    margin-top: 14px;
     max-width: 100%;
   }
 
-  /* Buttons left-aligned on mobile */
+  /* Buttons — stack full-width on mobile */
   .hero-actions {
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: stretch;
     gap: 10px;
     margin: 20px 0 20px;
   }
 
-  .btn {
-    padding: 12px 20px;
-    min-height: 44px;
-    font-size: 0.9rem;
+  .hero-actions .btn {
+    width: 100%;
     justify-content: center;
   }
 
-  /* Stats: same as desktop */
+  .btn {
+    padding: 13px 20px;
+    min-height: 46px;
+    font-size: 0.95rem;
+    justify-content: center;
+  }
+
+  /* Stats — 2-column grid for clean layout */
   .hero-stats {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px 32px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
     margin-top: 20px;
+    overflow: visible;
   }
 
   .hero-stat {
     flex-direction: row;
     align-items: center;
     text-align: left;
-    gap: 12px;
-    background: none;
-    border: none;
-    border-radius: 0;
-    padding: 0;
-    box-shadow: none;
+    gap: 10px;
+    background: rgba(2, 75, 83, 0.04);
+    border: 1px solid rgba(2, 75, 83, 0.08);
+    border-radius: 12px;
+    padding: 10px 12px;
+    min-width: 0;
   }
 
   .hero-stat-icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    border-radius: 10px;
   }
 
   .hero-stat strong {
-    font-size: 1.15rem;
+    font-size: 0.92rem;
+    white-space: normal;
+    word-break: break-word;
+    line-height: 1.2;
   }
 
   .hero-stat span {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
   }
 
   /* Hero visual — show below copy on mobile */

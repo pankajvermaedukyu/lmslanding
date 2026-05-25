@@ -139,14 +139,14 @@ if (scrollTopBtn) {
     tabs.forEach((t, i) => {
       const isActive = i === index;
       t.classList.toggle('active', isActive);
-      t.setAttribute('aria-selected', isActive);
+      t.setAttribute('aria-selected', String(isActive));
     });
     panels.forEach((p, i) => {
       if (i === index) {
         p.classList.remove('hidden');
-        // re-trigger animation
+        void p.offsetWidth; // force reflow to re-trigger CSS animation
         p.style.animation = 'none';
-        p.offsetHeight; // reflow
+        void p.offsetWidth;
         p.style.animation = '';
       } else {
         p.classList.add('hidden');

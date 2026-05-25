@@ -4,7 +4,7 @@
   "private": true,
   "description": "EduKyu-themed landing page for LMS Bharat project.",
   "scripts": {
-    "dev": "live-server --open=./index.html --port=3000",
+    "dev": "live-server --open=./index.html --port=3000 --ignore=node_modules",
     "start": "npm run dev"
   },
   "devDependencies": {
